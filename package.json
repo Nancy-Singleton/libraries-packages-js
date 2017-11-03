@@ -1,0 +1,25 @@
+{
+  "name": "temp2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp build",
+    "dev": "gulp dev",
+    "test": "mocha --compilers js:babel-core/register tests/**/*.js"
+  },
+  "author": "me",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-nodemon": "^2.2.1",
+    "sharp": "^0.18.4"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1"
+  }
+}

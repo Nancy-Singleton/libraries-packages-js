@@ -1,6 +1,5 @@
 import readline from 'readline';
 import sharp from 'sharp';
-import fs from 'fs';
 import { generateOutputFile } from './fileHelper';
 
 const rl = readline.createInterface({
@@ -20,10 +19,15 @@ async function askQuestion() {
     });
 }
 
-async function transformImage(inputFile, outputFile) {    
+async function transformImage(inputFile, outputFile) {
     return sharp(inputFile)
         .resize(200, 200)
-        .overlayWith(roundedCorners, { cutout: true })
+        .composite([
+            {
+                input: roundedCorners,
+                blend: 'dest-in'  // cutout effect
+            }
+        ])
         .toFile(outputFile);
 }
 
